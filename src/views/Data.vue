@@ -1,49 +1,55 @@
 <template>
   <b-container>
-    <h1 style="color:#ffffff">SLOTMACHINE BY Zeancasino</h1>
+    <!-- <h1 style="color:#ffffff">SLOTMACHINE BY Zeancasino</h1> -->
     <div style="max-width:768px;">
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-      <b-form-group
-        id="input-group-1"
-        label="ไอดีเกมส์:"
-        label-for="input-1"
-        description=""
-      >
+      <b-row class="my-1">
+       <b-col sm="3">
+      <label for="input-1">ไอดีเกมส์:</label>
+    </b-col>
+      <b-col sm="6">
         <b-form-input
           id="input-1"
           v-model="form.id"
           required
           placeholder="ไอดีเกมส์"
         ></b-form-input>
-      </b-form-group>
+      </b-col></b-row>
+        <b-row class="my-1">
+           <b-col sm="3">
+      <label for="input-2">ชื่อเกมส์:</label>
+    </b-col>
+      <b-col sm="6">
 
-      <b-form-group id="input-group-2" label="ชื่อเกมส์:" label-for="input-2">
+     
         <b-form-input
           id="input-2"
           v-model="form.name"
           required
           placeholder="ชื่อเกมส์"
         ></b-form-input>
-      </b-form-group>
-
-      <b-form-group id="input-group-3" label="รูปหน้าปกเกมส์:" label-for="input-3">
-        <b-form-input
-          id="input-2"
+     
+ </b-col></b-row>
+        <b-row class="my-1">
+           <b-col sm="3">
+      <label for="input-3">รูปหน้าปกเกมส์:</label>
+    </b-col>
+      <b-col sm="6">
+             <b-form-input
+          id="input-3"
           v-model="form.img"
           required
           placeholder="รูปหน้าปกเกมส์"
         ></b-form-input>
-      </b-form-group>
-
-      <!-- <b-form-group id="input-group-4">
-        <b-form-checkbox-group v-model="form.checked" id="checkboxes-4">
-          <b-form-checkbox value="me">Check me out</b-form-checkbox>
-          <b-form-checkbox value="that">Check that out</b-form-checkbox>
-        </b-form-checkbox-group>
-      </b-form-group> -->
-
-      <b-button type="submit" variant="primary">บันทึก</b-button>
-      <b-button type="reset" variant="danger">ยกเลิก</b-button>
+         </b-col></b-row>
+       <b-row class="my-1 pb-5"></b-row>
+   <b-row class="my-1">
+             <b-col sm="6"></b-col>
+              <b-col sm="*" class="pr-2"><b-button type="submit" style="width:120px;" variant="primary">บันทึก</b-button></b-col>
+      <b-col sm="*">
+      <b-button type="reset" style="width:120px;" variant="danger">ยกเลิก</b-button>
+      </b-col>
+   </b-row>
     </b-form>
     <b-card class="mt-3" header="Form Data Result">
       <pre class="m-0">{{ items }}</pre>
