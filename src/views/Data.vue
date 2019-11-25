@@ -35,12 +35,21 @@
       <label for="input-3">รูปหน้าปกเกมส์:</label>
     </b-col>
       <b-col sm="6">
-             <b-form-input
+             <!-- <b-form-input
           id="input-3"
           v-model="form.img"
           required
           placeholder="รูปหน้าปกเกมส์"
-        ></b-form-input>
+        ></b-form-input> -->
+        <b-form-file
+      v-model="file"
+      :state="Boolean(file)"
+      placeholder="รูปหน้าปกเกมส์ ลากไฟล์หรือกดเพื่อค้นหา..."
+      drop-placeholder="วางรูป..."
+      accept="image/jpeg, image/png, image/gif"
+      ref="file-input"
+    ></b-form-file>
+    <!-- <div class="mt-3">Selected file: {{ file ? file.name : '' }}</div> -->
          </b-col></b-row>
        <b-row class="my-1 pb-5"></b-row>
    <b-row class="my-1">
@@ -65,6 +74,7 @@ import { get,sync } from "vuex-pathify"
         form: { 
           id:'',name:'',img:'', total: 1,win: 1
         },
+        file: null,
         // foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
         show: true
       }
@@ -96,6 +106,7 @@ import { get,sync } from "vuex-pathify"
         this.form.id = ''
         this.form.name = ''
         this.form.img = null
+        this.$refs['file-input'].reset()
         // this.form.checked = []
         // Trick to reset/clear native browser form validation state
         this.show = false

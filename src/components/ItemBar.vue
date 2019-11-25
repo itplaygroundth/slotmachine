@@ -11,7 +11,7 @@
             <b-col><b-progress :max="data.total"> <b-progress-bar :value="data.win" :label="`${((data.win / data.total) * 100).toFixed(2)}%`" show-progress animated variant="danger" :precision="2"></b-progress-bar></b-progress></b-col>
         </b-row>
          </b-card> -->
-         <b-card bg-variant="primary" text-variant="white" class="overflow-hidden text-left" style="max-width: 540px;height:420px;" :header="data.name" footer="Card Footer"
+         <b-card bg-variant="primary" text-variant="white" class="overflow-hidden text-left" id="card" :header="data.name" footer="Card Footer"
       footer-tag="footer">
     <b-row no-gutters>
       <b-col md="6">
@@ -68,5 +68,20 @@ h1 {
     width:320px;
     height: 220px;
     background-color:rgb(0, 93, 155);
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  #card {
+    max-width: 540px;
+    height:auto;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* For mobile phones: */
+  #card {
+    max-width: 540px;
+    height:450px;
+  }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
 <b-container>
-   <b-card bg-variant="secondary" text-variant="white" header="เข้าสู่ระบบ" class="text-center"  style="width: 50%;">
+   <b-card bg-variant="secondary" text-variant="white" header="เข้าสู่ระบบ" class="text-center" id="login">
 <b-form @submit="onSubmit" @reset="onReset" v-if="show">       
   <b-row class="my-1">
       <b-col sm="3">
@@ -30,13 +30,11 @@
     </b-col>
   </b-row>
   <b-row class="my-1 pb-5"></b-row>
-   <b-row class="my-1">
-             <b-col sm="6"></b-col>
-              <b-col sm="*" class="pr-2"><b-button type="submit" style="width:120px;" variant="primary">เข้าสู่ระบบ</b-button></b-col>
-      <b-col sm="*">
-      <b-button type="reset" style="width:120px;" variant="danger">ยกเลิก</b-button>
+   <div>
+      <b-col sm="*" class="pr-2"><b-button type="submit" style="width:120px;" variant="primary">เข้าสู่ระบบ</b-button>
+            <b-button type="reset" style="width:120px;" variant="danger">ยกเลิก</b-button>
       </b-col>
-   </b-row>
+   </div>
   </b-form>
     </b-card>
   </b-container>
@@ -109,3 +107,23 @@
     }
   }
 </script>
+<style scoped>
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  #login {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* For mobile phones: */
+  #login {
+    width: 30%;
+   position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    
+  }
+}
+</style>
