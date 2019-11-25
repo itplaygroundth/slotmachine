@@ -11,7 +11,7 @@
             <b-col><b-progress :max="data.total"> <b-progress-bar :value="data.win" :label="`${((data.win / data.total) * 100).toFixed(2)}%`" show-progress animated variant="danger" :precision="2"></b-progress-bar></b-progress></b-col>
         </b-row>
          </b-card> -->
-         <b-card bg-variant="primary" text-variant="white" class="overflow-hidden text-left" id="card" :header="data.name" footer="Card Footer"
+         <b-card bg-variant="primary" text-variant="white" class="overflow-hidden text-left" id="card" :header="data.name" :style="`background-color:${'#'+bgcolor} !important;color:${invertColor('#'+bgcolor)}!important;`" footer="Card Footer"
       footer-tag="footer">
     <b-row no-gutters>
       <b-col md="6">
@@ -41,7 +41,8 @@
 export default {
     props: {
         caption: String,
-        data: {}
+        data: {},
+        bgcolor: String
     },
     computed: {
         percent () {
@@ -56,8 +57,24 @@ export default {
                 this.percent = (100-val).toFixed(2)
             }
             
+        },
+        invertHex(hex) {
+        return (Number(`0x1${hex}`) ^ 0xFFFFFF).toString(16).substr(1).toUpperCase()
+        },
+        adjust(color, amount) {
+            return '#' + color.replace(/^#/, '').replace(/../g, color => ('0'+Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2));
+        },
+        invertColor(col){
+            const colors = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
+            let inverseColor = '#'
+            col.replace('#','').split('').forEach(i => {
+                const index = colors.indexOf(i)
+                inverseColor += colors.reverse()[index]
+            })
+            return inverseColor
         }
-    }
+
+        }
 }
 </script>
 <style scoped>
@@ -69,7 +86,9 @@ h1 {
     height: 220px;
     background-color:rgb(0, 93, 155);
 }
-
+/* #card {
+    background-color: chocolate !important;
+} */
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   #card {
