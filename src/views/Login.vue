@@ -73,9 +73,19 @@
         updated.then((r) => {
           this.$store.set('logged',r)
           if(r)
-          this.$router.replace('/')
+          {
+            this.$router.replace('/')
+            
+          } else 
+          {
+           // this.makeToast('danger','เข้าสู่ระบบไม่สำเร็จ')
+          }
+
         })
-        
+        if(this.$store.state.logged)
+        this.makeToast('success','เข้าสู่ระบบสำเร็จ')
+        else
+        this.makeToast('danger','เข้าสู่ระบบไม่สำเร็จ')
       },
       onReset(evt) {
         evt.preventDefault()
@@ -87,6 +97,13 @@
         this.show = false
         this.$nextTick(() => {
           this.show = true
+        })
+      },
+       makeToast(variant = null,content = '') {
+        this.$bvToast.toast(content, {
+          title: `แจ้งผล`,
+          variant: variant,
+          solid: true
         })
       }
     }

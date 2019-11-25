@@ -2,7 +2,7 @@
 <div>
     <!-- <h1 style="color:#ffffff">{{ msg }}</h1> -->
     <div class="itembar" v-for="i in items" :key="i.id">
-    <ItemBar :caption="i.caption" :data=i></ItemBar>
+    <ItemBar :caption="i.name" :data=i></ItemBar>
     </div>
 </div>
 </template>

@@ -63,7 +63,7 @@ import { get,sync } from "vuex-pathify"
     data() {
       return {
         form: { 
-          id:'',name:'',img:'', total: 0,win: 0
+          id:'',name:'',img:'', total: 1,win: 1
         },
         // foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
         show: true
