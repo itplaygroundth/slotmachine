@@ -11,7 +11,7 @@
         id="input-1"  
         v-model="form.username"
         required 
-        placeholder="ชื่อผู้ใช้"
+        placeholder="ชื่อผู้ใช้ (admin)"
       ></b-form-input>
     </b-col>
   </b-row>
@@ -25,7 +25,7 @@
         type="password"
         v-model="form.password"
         required 
-        placeholder="รหัสผ่าน"
+        placeholder="รหัสผ่าน (luckynumber)"
       ></b-form-input>
     </b-col>
   </b-row>
