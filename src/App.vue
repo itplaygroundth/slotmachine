@@ -60,7 +60,7 @@ html,body {
   background-image: url('assets/imgs/bg2.jpg');
   background-size: cover;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
